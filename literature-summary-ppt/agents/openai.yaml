@@ -1,0 +1,4 @@
+interface:
+  display_name: "总结文献和制作PPT"
+  short_description: "先确认高密度中文总结，再串行制作普通版与深大模板PPT"
+  default_prompt: "使用 $literature-summary-ppt 阅读我提供的文献，先生成并展示总结Word预览，待我确认后再依次制作普通版和深大模板版PPT。"
