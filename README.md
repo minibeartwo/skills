@@ -7,7 +7,7 @@
 | 技能 | 用途 |
 | --- | --- |
 | [literature-summary-ppt](literature-summary-ppt/README.md) | 完整阅读学术文献，先确认中文极简总结，再串行生成普通版与深圳大学模板版文献汇报 PPT。 |
-| [annotate-project-zh](annotate-project-zh/SKILL.md) | 为完整项目原地补充五项中文文件头，说明输入输出路径并解释专业术语，不生成额外交付文件。 |
+| [annotate-project-zh](annotate-project-zh/SKILL.md) | 为完整项目原地补充五项中文文件头及逐函数三项说明，解释全部参数、返回结果和专业术语，并提供 Python 函数注释覆盖检查。 |
 
 ## 安装
 
