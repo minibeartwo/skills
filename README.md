@@ -7,6 +7,7 @@
 | 技能 | 用途 |
 | --- | --- |
 | [literature-summary-ppt](literature-summary-ppt/README.md) | 完整阅读学术文献，先确认中文极简总结，再串行生成普通版与深圳大学模板版文献汇报 PPT。 |
+| [annotate-project-zh](annotate-project-zh/SKILL.md) | 为完整项目原地补充五项中文文件头，说明输入输出路径并解释专业术语，不生成额外交付文件。 |
 
 ## 安装
 
@@ -22,7 +23,9 @@ git clone https://github.com/minibeartwo/skills.git
 
 <https://github.com/minibeartwo/skills/tree/main/literature-summary-ppt>
 
-安装后按客户端要求重新加载技能或开启新对话。每个技能的运行条件、使用示例和校验命令见对应 `README.md`。
+<https://github.com/minibeartwo/skills/tree/main/annotate-project-zh>
+
+安装后按客户端要求重新加载技能或开启新对话。每个技能的执行规则见对应 `SKILL.md`；额外的运行条件、使用示例和校验命令见技能目录中的 `README.md`（如有）。
 
 ## 目录约定
 
