@@ -1,0 +1,4 @@
+interface:
+  display_name: "项目设计图生成"
+  short_description: "读取真实项目代码，生成中文架构图、流程图和时序图 PNG"
+  default_prompt: "请使用 $project-diagrams-zh，依据这个项目的真实代码生成中文架构图、流程图和时序图 PNG。"
