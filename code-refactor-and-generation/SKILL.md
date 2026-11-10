@@ -1,6 +1,6 @@
 ---
 name: code-refactor-and-generation
-description: 按固定目录重构、修改或生成医学 AI 项目的 Python 代码。用于采用 dataset/raw、dataset/processed/process1 与 process2、固定患者级划分 CSV，以及独立的预处理、训练、评估和推理入口的项目，或用户明确要求按此结构迁移的项目。
+description: 按固定目录重构、修改或生成机器学习和深度学习等 Python 模型项目的代码。用于采用固定数据划分 CSV 和独立的预处理、训练、评估、推理入口的项目，或用户要求按此结构组织的项目。先提交修改计划，获批后实施和验证。
 ---
 
 # 代码重构及生成
@@ -17,7 +17,7 @@ description: 按固定目录重构、修改或生成医学 AI 项目的 Python �
 ## 按阶段实施
 
 - 使用[项目结构与运行配置](references/project-layout.md)核对入口、各阶段 `config.yaml` 和允许写入的位置。保留 `evalution1/`、`evalution2/` 的原拼写。示例产物只用于说明命名。
-- 涉及预处理、CSV、训练或断点续训时，阅读[预处理、固定划分与训练](references/data-and-training.md)。方法 N 绑定 `processCodeN.py`、`processN/` 与 `trainCodeN.py`。原始数据保持只读。训练使用各数据集原有患者级划分，只用验证集选择 `best`。
+- 涉及预处理、CSV、训练或断点续训时，阅读[预处理、固定划分与训练](references/data-and-training.md)。方法 N 绑定 `processCodeN.py`、`processN/` 与 `trainCodeN.py`。原始数据保持只读。训练使用各数据集原有固定划分，只用验证集选择 `best`。
 - 涉及评估、推理或其输出时，阅读[评估、推理与结果保存](references/evaluation-and-inference.md)。从明确指定的 Checkpoint 恢复模型结构，沿用同编号的预处理数据。最终评估只用固定测试集。写入前检查本次全部目标名，遇到冲突停止写入。
 - 在现有脚本内部整理函数和类。保持模型、损失、预处理顺序、训练策略、划分、推理逻辑和现有调用行为，除非对应行为变更已获批准。各阶段通过自身的 YAML 配置参数，支持直接运行入口。遵守历史实验结果和 Checkpoint 的保留规则。
 

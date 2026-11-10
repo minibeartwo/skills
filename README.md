@@ -9,7 +9,7 @@
 | [literature-summary-ppt](literature-summary-ppt/README.md) | 完整阅读学术文献，先确认中文极简总结，再串行生成普通版与深圳大学模板版文献汇报 PPT。 |
 | [annotate-project-zh](annotate-project-zh/SKILL.md) | 为完整项目原地补充五项中文文件头及逐函数三项说明，解释全部参数、返回结果和专业术语，并提供 Python 函数注释覆盖检查。 |
 | [project-diagrams-zh](project-diagrams-zh/SKILL.md) | 根据项目真实代码生成中文架构图、流程图和时序图 PNG，附图说明与代码依据，无需模型生图能力。 |
-| [code-refactor-and-generation](code-refactor-and-generation/SKILL.md) | 按固定目录重构或生成医学 AI 项目的 Python 代码，先提交修改计划，获批后实施和验证。 |
+| [code-refactor-and-generation](code-refactor-and-generation/SKILL.md) | 按固定目录重构或生成 Python 模型项目的代码，先提交修改计划，获批后实施和验证。 |
 
 ## 安装
 
