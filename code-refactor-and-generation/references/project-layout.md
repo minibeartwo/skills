@@ -5,6 +5,7 @@
 ```text
 └── project/
     ├── 修改计划.md
+    ├── environment/
     ├── dataset/
     │   ├── raw/
     │   │   ├── dataset1/
@@ -72,6 +73,14 @@
 ```
 
 这是**唯一基准结构模板，目录树仅以两套方法演示命名形式，并非要求实际生成两套方法**。`project/修改计划.md` 是任务执行前的计划与确认文件，不是实验输出。保留已使用的文件名及目录名（包括原有的 `evalution` 拼写），不为所谓“模块化”增加多余层级。通用规则是：`evalutionN`、`inferenceN` 固定对应**方法 N**，编号代表方法而非第几次运行。实际只有方法 1 时只保留其对应部分；若存在方法 3、方法 4 等，则按同样命名规则扩展 `processCodeN.py`、`trainCodeN.py` 及各自对应的既有类型输出目录，**不创建不存在或未经确认的方法**。树中的 `.pt`、`.csv`、`.png`、`.yaml` 结果文件是**命名示例，并非要求预先生成的文件**；其中 `20261109` 只是日期格式示例，实际结果使用运行当天的 `YYYYMMDD`。真实文件类型应与任务匹配。未经用户确认，不新增其他编号或改变编号含义。
+
+## 项目 Conda 环境
+
+- 在项目根目录下使用 `environment/` 作为 Conda 环境的安装路径。在修改计划中列明 Python 版本、项目运行依赖和安装方式，获批后创建环境并安装依赖。
+- 已有 Conda 环境清单时，从项目根目录运行 `conda env create --prefix ./environment --file <清单路径>`。按包创建时，运行 `conda create --prefix ./environment python=<版本> <所需的 Conda 包>`。这些命令中的占位符应替换为项目实际值。
+- 从项目根目录运行 `conda activate ./environment`。运行这条命令需要终端已启用 Conda。其他目录可使用 `conda activate "<项目根目录绝对路径>/environment"`。
+- 将项目所需的 Python 和运行库装入此环境。用 Conda 补装依赖时指定 `--prefix ./environment`，用 pip 时在激活后运行 `python -m pip`，并核对当前解释器位于 `environment/` 下。系统级依赖（如 GPU 驱动）在修改计划中注明。
+- 对 Git 项目，将生成的 `/environment/` 加入忽略规则，依赖清单按项目现有约定管理。
 
 ### ⑤ 所有超参数只放在当前阶段的 config.yaml
 

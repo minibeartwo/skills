@@ -16,6 +16,7 @@ description: 按固定目录重构、修改或生成机器学习和深度学习�
 
 ## 按阶段实施
 
+- 获批后按[项目 Conda 环境](references/project-layout.md#项目-conda-环境)将运行依赖安装到项目根目录的 `environment/`。从项目根目录用 `conda activate ./environment` 激活。
 - 使用[项目结构与运行配置](references/project-layout.md)核对入口、各阶段 `config.yaml` 和允许写入的位置。只为实际确认的方法 N 建立对应入口、配置和输出目录，保留 `evalutionN/` 的原拼写。编号对应方法，示例产物用于说明命名。
 - 涉及预处理、CSV、训练或断点续训时，阅读[预处理、固定划分与训练](references/data-and-training.md)。方法 N 绑定 `processCodeN.py`、`processN/` 与 `trainCodeN.py`。原始数据保持只读。划分 CSV 按实际使用的组合命名为 `datasetMSplit-processN.csv`。训练沿用各数据集的固定划分，只用验证集选择 `best`。
 - 涉及评估、推理或其输出时，阅读[评估、推理与结果保存](references/evaluation-and-inference.md)。从明确指定的 Checkpoint 恢复模型结构，沿用同编号的预处理数据。最终评估只用固定测试集。写入前检查本次全部目标名，遇到冲突停止写入。
