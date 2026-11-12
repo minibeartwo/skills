@@ -4,7 +4,7 @@
 
 - 所有方法共用一个 `evaluationCode.py` 和一个 `inferenceCode.py`，**不新增 `evaluationCode1.py`、`inferenceCode2.py` 等按方法拆分的入口**。
 - `evaluation-code/config.yaml` 和 `inference-code/config.yaml` 必须能够配置：**实际存在的方法编号 N（不限于 1/2）**、选定数据集（单个或联合评估时的多个数据集）、**具体 Checkpoint 文件路径**以及本阶段需要的参数。
-- **`evaluationCode.py` 只负责测试集（`test`）的最终评估**，必须根据选定数据集对应 CSV 的固定划分选取测试样本，不得默认读取 `train` 或 `val` 样本，也不得重新划分。训练期间的验证集（`val`）评估由对应 `trainCodeN.py` 内部完成，用于模型选择；测试集结果不得参与选择 `best` 权重。
+- **`evaluationCode.py` 只负责测试集（`test`）的最终评估**，必须根据选定数据集对应 划分表 的固定划分选取测试样本，不得默认读取 `train` 或 `val` 样本，也不得重新划分。训练期间的验证集（`val`）评估由对应 `trainCodeN.py` 内部完成，用于模型选择；测试集结果不得参与选择 `best` 权重。
 - 统一入口根据配置选择实际存在的 `trainCodeN.py` 中**已经定义好的模型构建/加载函数**；只加载选定方法的实现，不得随意复用其他编号方法，也不得在评估/推理代码中另造一份不同的模型结构。
 - **评估与推理输入必须与方法编号保持一致**：方法 N 使用 `dataset/processed/processN/<dataset_id>/`，不得让方法 N 的模型读取其他编号的预处理数据。
 - 模型 Checkpoint 必须包含训练时实际使用的模型结构参数及必要的配置，使评估、推理能按该 Checkpoint 对应的结构构建模型，**不能简单依赖后来可能已修改的 `train-code/config.yaml`**。读取时检查方法、数据集组合、模型结构与权重是否匹配；不匹配或文件不存在应明确报错，不能自动换模型，也不能静默忽略不匹配的参数。
